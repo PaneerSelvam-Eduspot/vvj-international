@@ -23,7 +23,7 @@ export default function ProductsGrid() {
             }}
           >
             Our{" "}
-            <span style={{ color: "var(--emerald-mid)" }}>Products</span>
+            <span style={{ color: "var(--gold)" }}>Products</span>
           </h2>
         </div>
 
@@ -39,22 +39,9 @@ export default function ProductsGrid() {
               className="card-line-reveal card-surface group flex flex-col"
               style={{ padding: "2.5rem 2rem" }}
             >
-              {/* Image */}
+              {/* Visual image */}
               <div className="relative mb-7 h-44 overflow-hidden border border-vvj-border">
-                <Image
-                  src={product.image}
-                  alt={`${product.name} export quality`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(to top, rgba(11,28,20,0.45) 0%, rgba(11,28,20,0.05) 55%, transparent 100%)",
-                  }}
-                />
+                <Image src={product.image} alt={product.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 25vw" />
               </div>
 
               {/* Title */}
@@ -71,7 +58,7 @@ export default function ProductsGrid() {
               {/* Tagline */}
               <p
                 className="text-[10px] tracking-[2px] uppercase mb-4"
-                style={{ color: "var(--emerald-mid)" }}
+                style={{ color: "var(--gold)" }}
               >
                 {product.tagline}
               </p>
@@ -102,7 +89,7 @@ export default function ProductsGrid() {
               <Link
                 href={`/products/${product.slug}`}
                 className="inline-flex items-center gap-2 mt-auto text-[11px] tracking-[2px] uppercase transition-all duration-300 group-hover:gap-3"
-                style={{ color: "var(--emerald-mid)" }}
+                style={{ color: "var(--gold)" }}
               >
                 Learn More
                 <ArrowRight size={12} />

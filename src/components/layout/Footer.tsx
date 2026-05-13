@@ -2,16 +2,16 @@ import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const productLinks = [
-  { label: "Onion",        href: "/products/onion" },
-  { label: "Peanut",       href: "/products/peanut" },
+  { label: "Onion", href: "/products/onion" },
+  { label: "Peanut", href: "/products/peanut" },
   { label: "Peanut Candy", href: "/products/peanut-candy" },
-  { label: "Mango",        href: "/products/mango" },
+  { label: "Mango", href: "/products/mango" },
 ];
 
 const companyLinks = [
-  { label: "About Us",       href: "/about" },
+  { label: "About Us", href: "/about" },
   { label: "Export Markets", href: "/exports" },
-  { label: "Contact",        href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
@@ -23,10 +23,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <span className="font-serif text-xl font-semibold text-gold tracking-widest block mb-1">
-              VVJ International
+              VVJ International & Logistics
             </span>
             <span className="text-[9px] tracking-[3px] uppercase text-vvj-muted block mb-5">
-              & Logistics · By the Crew of Jeyaraj
+              By the Crew of Jeyaraj
             </span>
             <p className="text-sm text-vvj-muted leading-relaxed">
               Bridging India&apos;s premium agricultural produce to global markets.
@@ -84,7 +84,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm text-vvj-muted">
                 <Mail size={13} className="text-emerald-mid flex-shrink-0" />
-                info@vvjinternational.com
+                info@vvjexports.com
               </li>
               <li className="flex items-center gap-3 text-sm text-vvj-muted">
                 <MapPin size={13} className="text-emerald-mid flex-shrink-0" />

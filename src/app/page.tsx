@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <StatsBar />
+      <StatsBar /> 
       <AboutSnippet />
       <ProductsGrid />
       <WhyVVJ />

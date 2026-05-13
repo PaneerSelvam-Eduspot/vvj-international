@@ -32,7 +32,7 @@ const stats = [
 
 const contactInfo = [
   { icon: Phone,  value: "+91 XXXXX XXXXX",          label: "Call Us"  },
-  { icon: Mail,   value: "info@vvjinternational.com", label: "Email Us" },
+  { icon: Mail,   value: "info@vvjexports.com", label: "Email Us" },
   { icon: MapPin, value: "Tamil Nadu, India",         label: "Location" },
 ];
 
@@ -87,7 +87,7 @@ export default function StatsBar() {
         </div>
       </div>
 
-      {/* ── Stats counter bar ── */}
+      {/* ── Stats counter bar ── 
       <div
         style={{
           background: "var(--surface)",
@@ -127,7 +127,9 @@ export default function StatsBar() {
             );
           })}
         </div>
+        
       </div>
+      */}
     </>
   );
 }

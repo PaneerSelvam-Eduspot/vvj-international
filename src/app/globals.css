@@ -2,24 +2,26 @@
 @config "../../tailwind.config.ts";
 
 /* ============================================================
-   CSS VARIABLES — Design Tokens
+   CSS VARIABLES — Design Tokens  (Metallic Gold Palette)
    ============================================================ */
 :root {
-  --bg:              #0B1C14;
-  --surface:         #112318;
-  --surface-2:       #163020;
-  --emerald:         #2D6A4F;
-  --emerald-mid:     #52B788;
-  --emerald-light:   #B7E4C7;
-  --emerald-dim:     rgba(45, 106, 79, 0.15);
-  --emerald-border:  rgba(82, 183, 136, 0.3);
+  --bg:              #050505;
+  --surface:         #0C0C0C;
+  --surface-2:       #131313;
+  --emerald:         #A68B3E;
+  --emerald-mid:     #C9A84C;
+  --emerald-light:   #E8D5A0;
+  --emerald-dim:     rgba(201, 168, 76, 0.12);
+  --emerald-border:  rgba(201, 168, 76, 0.35);
   --gold:            #C9A84C;
-  --gold-light:      #E8C97A;
-  --gold-dim:        rgba(201, 168, 76, 0.15);
-  --gold-border:     rgba(201, 168, 76, 0.3);
-  --text:            #F0F7F2;
-  --text-muted:      #7A9E8A;
+  --gold-light:      #D9BE76;
+  --gold-dim:        rgba(201, 168, 76, 0.14);
+  --gold-border:     rgba(201, 168, 76, 0.35);
+  --text:            #F0E6C8;
+  --text-muted:      #B5A476;
   --border:          rgba(255, 255, 255, 0.07);
+  --font-cormorant:  "Cormorant Garamond", Georgia, serif;
+  --font-dm-sans:    "DM Sans", system-ui, sans-serif;
 }
 
 /* ============================================================
@@ -37,8 +39,8 @@ html {
 body {
   background-color: var(--bg);
   background-image:
-    radial-gradient(ellipse 90% 60% at 10% -20%, rgba(82, 183, 136, 0.08) 0%, transparent 65%),
-    radial-gradient(ellipse 65% 45% at 100% 15%, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+    radial-gradient(ellipse 90% 60% at 10% -20%, rgba(201, 168, 76, 0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 65% 45% at 100% 15%, rgba(232, 213, 160, 0.08) 0%, transparent 70%);
   color: var(--text);
   font-family: var(--font-dm-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -156,8 +158,8 @@ select {
 }
 
 @keyframes borderGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(82, 183, 136, 0); }
-  50%       { box-shadow: 0 0 20px 2px rgba(82, 183, 136, 0.12); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0); }
+  50%       { box-shadow: 0 0 20px 2px rgba(201, 168, 76, 0.12); }
 }
 
 @keyframes lineReveal {
@@ -198,7 +200,7 @@ select {
 
   /* ── Navbar ── */
   .glass-nav {
-    background: rgba(11, 28, 20, 0.92);
+    background: rgba(5, 5, 5, 0.94);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
@@ -352,10 +354,10 @@ select {
 
   .card-surface:hover {
     background: var(--surface-2);
-    border-color: var(--emerald-border);
+    border-color: var(--gold-border);
     transform: translateY(-3px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3),
-                0 0 0 1px rgba(82, 183, 136, 0.1);
+                0 0 0 1px rgba(201, 168, 76, 0.16);
   }
 
   /* ── Dividers ── */
@@ -396,7 +398,7 @@ select {
   .input-field:focus {
     border-color: var(--emerald-mid);
     background: var(--surface-2);
-    box-shadow: 0 0 0 3px rgba(82, 183, 136, 0.08);
+    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.08);
   }
 
   /* ── Corner Accents ── */
@@ -448,7 +450,7 @@ select {
   .scroll-line {
     width: 1px;
     height: 48px;
-    background: linear-gradient(to bottom, var(--emerald-mid), transparent);
+    background: linear-gradient(to bottom, var(--gold), transparent);
     animation: scrollLine 2.5s ease-in-out infinite;
   }
 
@@ -481,15 +483,15 @@ select {
   /* ── Background Patterns ── */
   .bg-grid {
     background-image:
-      linear-gradient(rgba(82, 183, 136, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(82, 183, 136, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(201, 168, 76, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201, 168, 76, 0.05) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 
   .bg-dots {
     background-image: radial-gradient(
       circle,
-      rgba(82, 183, 136, 0.12) 1px,
+      rgba(201, 168, 76, 0.14) 1px,
       transparent 1px
     );
     background-size: 28px 28px;
@@ -498,7 +500,7 @@ select {
   /* ── Image Placeholder ── */
   .img-placeholder {
     background: var(--surface-2);
-    border: 1px solid var(--emerald-border);
+    border: 1px solid var(--gold-border);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -515,7 +517,7 @@ select {
     background: linear-gradient(
       135deg,
       transparent 40%,
-      rgba(82, 183, 136, 0.03) 50%,
+      rgba(201, 168, 76, 0.05) 50%,
       transparent 60%
     );
     background-size: 200% 200%;
@@ -540,7 +542,7 @@ select {
     inset: 0;
     background: radial-gradient(
       ellipse 60% 80% at 80% 50%,
-      rgba(45, 106, 79, 0.08) 0%,
+      rgba(201, 168, 76, 0.08) 0%,
       transparent 70%
     );
     pointer-events: none;
@@ -737,7 +739,7 @@ select {
   }
 
   .spec-row:hover {
-    background: rgba(82, 183, 136, 0.03);
+    background: rgba(201, 168, 76, 0.03);
     padding-left: 8px;
     padding-right: 8px;
   }

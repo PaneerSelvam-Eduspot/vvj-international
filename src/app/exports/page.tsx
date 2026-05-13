@@ -24,7 +24,7 @@ export default function ExportsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="relative h-72 mb-12 overflow-hidden border border-vvj-border">
             <Image
-              src="https://source.unsplash.com/1600x900/?shipping,containers,port,logistics"
+              src="/images/shipping-logistics.png"
               alt="Global agricultural shipping logistics"
               fill
               className="object-cover"

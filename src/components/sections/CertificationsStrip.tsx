@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const certs = ["APEDA", "FSSAI", "IEC", "Spice Board", "FEIO", "ISO 9001"];
+const certs = ["APEDA", "FSSAI", "IEC", "Spice Board"];
 
 export default function CertificationsStrip() {
   return (

@@ -2,34 +2,68 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import SectionTag from "@/components/ui/SectionTag";
 import { MessageCircle, ArrowRight } from "lucide-react";
 
 export default function ContactCTA() {
   return (
-    <section className="relative py-32 px-[5%] bg-surface text-center overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_100%,rgba(45,106,79,0.1)_0%,transparent_70%)]" />
+    <section
+      className="relative text-center overflow-hidden"
+      style={{
+        background: "var(--surface)",
+        padding: "8rem 5%",
+      }}
+    >
+      {/* Radial glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 60% 60% at 50% 100%, rgba(45,106,79,0.12) 0%, transparent 70%)",
+        }}
+      />
 
       <div className="relative max-w-2xl mx-auto">
-        <SectionTag className="mb-6">Start Trading</SectionTag>
+        <span className="label-tag">Start Trading</span>
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-serif text-[clamp(32px,4vw,56px)] font-semibold leading-tight mb-5"
+          className="font-serif font-semibold mb-5"
+          style={{
+            fontSize: "clamp(32px, 4vw, 56px)",
+            lineHeight: 1.05,
+            color: "var(--text)",
+          }}
         >
           Ready to Source{" "}
-          <em className="italic text-emerald-mid">Premium Produce?</em>
+          <em
+            className="italic"
+            style={{ color: "var(--emerald-mid)" }}
+          >
+            Premium Produce?
+          </em>
         </motion.h2>
-        <p className="text-vvj-muted text-[15px] mb-10">
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="text-[15px] mb-10"
+          style={{ color: "var(--text-muted)" }}
+        >
           Let&apos;s discuss your requirements. We respond within 24 hours for all
           genuine B2B enquiries.
-        </p>
-        <div className="flex items-center justify-center gap-4 flex-wrap">
-          <Link
-            href="/contact"
-            className="flex items-center gap-2 px-8 py-3.5 bg-emerald text-vvj-text text-[11px] tracking-[2.5px] uppercase font-medium hover:bg-emerald-mid transition-colors"
-          >
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.18 }}
+          className="flex items-center justify-center gap-4 flex-wrap"
+        >
+          <Link href="/contact" className="btn-primary">
             Send Enquiry
             <ArrowRight size={14} />
           </Link>
@@ -37,12 +71,21 @@ export default function ContactCTA() {
             href="https://wa.me/91XXXXXXXXXX"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-8 py-3.5 border border-[rgba(37,211,102,0.3)] text-[#25d366] text-[11px] tracking-[2.5px] uppercase hover:bg-[rgba(37,211,102,0.08)] transition-colors"
+            className="inline-flex items-center gap-2"
+            style={{
+              padding: "14px 32px",
+              border: "1px solid rgba(37,211,102,0.25)",
+              color: "#25d366",
+              fontSize: "11px",
+              letterSpacing: "2.5px",
+              textTransform: "uppercase",
+              transition: "background 0.25s ease",
+            }}
           >
             <MessageCircle size={14} />
             WhatsApp Us
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

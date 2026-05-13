@@ -63,7 +63,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               {[
                 { icon: Phone,  label: "Phone",    value: "+91 XXXXX XXXXX" },
-                { icon: Mail,   label: "Email",    value: "info@vvjinternational.com" },
+                { icon: Mail,   label: "Email",    value: "info@vvjexports.com" },
                 { icon: MapPin, label: "Location", value: "Tamil Nadu, India" },
               ].map((item) => {
                 const Icon = item.icon;

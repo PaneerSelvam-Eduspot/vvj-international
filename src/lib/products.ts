@@ -82,7 +82,7 @@ export const products: Product[] = [
     slug: "onion",
     name: "Onion",
     tagline: "India's Most Exported Vegetable",
-    image: "https://source.unsplash.com/1600x1100/?red-onion,agriculture,produce",
+    image: "/images/onion.jpg",
     description:
       "Premium grade Indian onions sourced from Nashik, Pune and Solapur — India's export heartland. Available in red, white and pink varieties, graded and packed to international standards.",
     highlights: [
@@ -98,7 +98,7 @@ export const products: Product[] = [
     slug: "peanut",
     name: "Peanut",
     tagline: "Bold, Clean, Aflatoxin-Tested",
-    image: "https://source.unsplash.com/1600x1100/?peanut,food,agriculture",
+    image: "/images/peanut.jpg",
     description:
       "Java-type groundnuts with high oil content, machine-cleaned and tested for aflatoxin compliance. Available in multiple processing forms — in-shell, shelled, blanched, splits and roasted.",
     highlights: [
@@ -114,7 +114,7 @@ export const products: Product[] = [
     slug: "peanut-candy",
     name: "Peanut Candy",
     tagline: "Traditional Chikki, Ready for Global Retail",
-    image: "https://source.unsplash.com/1600x1100/?peanut-brittle,sweets,indian-food",
+    image: "/images/peanut-candy.jpg",
     description:
       "Authentic Indian peanut brittle (chikki) crafted with natural jaggery. Long shelf life, consistent quality, available in bulk and retail-ready packaging for direct import.",
     highlights: [
@@ -130,7 +130,7 @@ export const products: Product[] = [
     slug: "mango",
     name: "Mango",
     tagline: "India's Crown Export — 5 Premium Varieties",
-    image: "https://source.unsplash.com/1600x1100/?mango,fresh-fruit,crate",
+    image: "/images/mango.jpg",
     description:
       "Hand-picked at peak ripeness from India's finest growing regions. VVJ exports five premium mango varieties covering the full season from March to July — each with distinct flavour profiles, origins and export specifications.",
     highlights: [

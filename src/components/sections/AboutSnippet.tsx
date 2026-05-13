@@ -9,28 +9,28 @@ const highlights = [
   "APEDA Certified Export House",
   "FSSAI Licensed",
   "IEC Registered",
-  "B2B Focused — Bulk Orders Only",
+  "B2B Focused",
 ];
 
 export default function AboutSnippet() {
   return (
     <section style={{ background: "var(--bg)" }}>
-      <div className="max-content section-padding">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-content section-padding-sm">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
           {/* ── Left: Image frame ── */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
             className="relative"
           >
             {/* Main image frame */}
-            <div className="relative overflow-hidden" style={{ aspectRatio: "4/5", maxWidth: "480px" }}>
+            <div className="relative overflow-hidden" style={{ aspectRatio: "4/5", maxWidth: "380px" }}>
               <Image
-                src="https://source.unsplash.com/1000x1300/?agriculture,warehouse,logistics"
-                alt="VVJ agricultural export operations"
+                src="/vvj-logo.png"
+                alt="VVJ International & Logistics "
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 480px"
@@ -45,9 +45,9 @@ export default function AboutSnippet() {
                 }}
               />
 
-              <div className="absolute left-5 top-5 inline-flex items-center gap-2 opacity-85">
-                <Anchor size={18} strokeWidth={1.1} style={{ color: "var(--emerald-mid)" }} />
-                <span className="text-[9px] tracking-[3px] uppercase text-vvj-text">
+              <div className="absolute left-4 top-4 inline-flex items-center gap-2 opacity-85">
+                <Anchor size={16} strokeWidth={1.1} style={{ color: "var(--emerald-mid)" }} />
+                <span className="text-[8px] tracking-[2.5px] uppercase text-vvj-text">
                   Trusted Export House
                 </span>
               </div>
@@ -66,7 +66,7 @@ export default function AboutSnippet() {
               />
             </div>
 
-            {/* Floating badge */}
+            {/* Floating badge 
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -93,22 +93,23 @@ export default function AboutSnippet() {
                 Years of Trade
               </span>
             </motion.div>
+            */}
           </motion.div>
 
           {/* ── Right: Content ── */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 16 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.55, delay: 0.08, ease: "easeOut" }}
           >
             <span className="label-tag">About Us</span>
 
             <h2
-              className="font-serif font-semibold mb-6"
+              className="font-serif font-semibold mb-4"
               style={{
-                fontSize: "clamp(32px, 4vw, 52px)",
-                lineHeight: 1.05,
+                fontSize: "clamp(28px, 3.4vw, 42px)",
+                lineHeight: 1.08,
                 color: "var(--text)",
               }}
             >
@@ -121,7 +122,7 @@ export default function AboutSnippet() {
             </h2>
 
             <p
-              className="text-[15px] leading-relaxed mb-4"
+              className="text-[14px] leading-relaxed mb-3"
               style={{ color: "var(--text-muted)" }}
             >
               VVJ International & Logistics is a premier agricultural export house,
@@ -131,7 +132,7 @@ export default function AboutSnippet() {
             </p>
 
             <p
-              className="text-[15px] leading-relaxed mb-8"
+              className="text-[14px] leading-relaxed mb-6"
               style={{ color: "var(--text-muted)" }}
             >
               We are B2B traders, highly specialized in bulk agricultural exports.
@@ -141,15 +142,15 @@ export default function AboutSnippet() {
             </p>
 
             {/* Highlights */}
-            <ul className="space-y-3 mb-10">
+            <ul className="space-y-2.5 mb-8">
               {highlights.map((h) => (
                 <li key={h} className="flex items-center gap-3">
                   <CheckCircle2
-                    size={16}
+                    size={15}
                     style={{ color: "var(--emerald-mid)", flexShrink: 0 }}
                   />
                   <span
-                    className="text-[13px]"
+                    className="text-[12px]"
                     style={{ color: "var(--text-muted)" }}
                   >
                     {h}
@@ -159,7 +160,7 @@ export default function AboutSnippet() {
             </ul>
 
             {/* Bottom row */}
-            <div className="flex items-center gap-6 flex-wrap">
+            <div className="flex items-center gap-4 flex-wrap">
               <Link href="/about" className="btn-primary">
                 Read More
                 <ArrowRight size={14} />
@@ -171,7 +172,7 @@ export default function AboutSnippet() {
                 style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
               >
                 <div
-                  className="flex items-center justify-center w-9 h-9 rounded-full"
+                  className="flex items-center justify-center w-8 h-8 rounded-full"
                   style={{ background: "var(--emerald-dim)" }}
                 >
                   <Phone size={14} style={{ color: "var(--emerald-mid)" }} />
