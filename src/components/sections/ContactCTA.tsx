@@ -1,92 +1,131 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
+import { Mail, Phone, Send } from "lucide-react";
+import { contactDetails } from "@/lib/contact";
+import { contactFormSchema, inquiryOptions, type ContactFormData } from "@/lib/contact-form";
 
 export default function ContactCTA() {
+  const [loading, setLoading] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({ resolver: zodResolver(contactFormSchema) });
+
+  const onSubmit = async (data: ContactFormData) => {
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const result = await response.json().catch(() => null);
+        throw new Error(result?.error || "Unable to send enquiry.");
+      }
+
+      toast.success("Message sent. VVJ will contact you shortly.");
+      reset();
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Unable to send enquiry.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <section
-      className="relative text-center overflow-hidden"
-      style={{
-        background: "var(--surface)",
-        padding: "8rem 5%",
-      }}
-    >
-      {/* Radial glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse 60% 60% at 50% 100%, rgba(45,106,79,0.12) 0%, transparent 70%)",
-        }}
-      />
+    <>
+      {/* BEGIN: Minimal Inquiry Form */}
+      <section id="inquire" className="bg-slate-100 px-[5%] py-16 lg:py-24">
+      <div className="max-content">
+        <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
+          <div className="bg-slate-950 p-7 text-white lg:sticky lg:top-28">
+            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-200">
+              Quick Contact
+            </span>
+            <h2 className="mt-4 font-serif text-3xl leading-tight text-white">
+              Send a short enquiry.
+            </h2>
+            <div className="mt-6 grid gap-3 text-sm text-slate-200">
+              <a href={`tel:${contactDetails.phoneTel}`} className="flex items-center gap-3 transition-colors hover:text-white">
+                <Phone size={15} className="text-emerald-200" />
+                {contactDetails.phoneDisplay}
+              </a>
+              <a href={`mailto:${contactDetails.email}`} className="flex items-center gap-3 break-all transition-colors hover:text-white">
+                <Mail size={15} className="shrink-0 text-emerald-200" />
+                {contactDetails.email}
+              </a>
+            </div>
+          </div>
 
-      <div className="relative max-w-2xl mx-auto">
-        <span className="label-tag">Start Trading</span>
+          <form onSubmit={handleSubmit(onSubmit)} className="border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+            <div className="grid gap-5 md:grid-cols-2">
+              <Field label="Name" error={errors.name?.message}>
+                <input {...register("name")} className="input-field" placeholder="Your name" />
+              </Field>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-serif font-semibold mb-5"
-          style={{
-            fontSize: "clamp(32px, 4vw, 56px)",
-            lineHeight: 1.05,
-            color: "var(--text)",
-          }}
-        >
-          Ready to Source{" "}
-          <em
-            className="italic"
-            style={{ color: "var(--emerald-mid)" }}
-          >
-            Premium Produce?
-          </em>
-        </motion.h2>
+              <Field label="Email or Phone" error={errors.contact?.message}>
+                <input {...register("contact")} className="input-field" placeholder="you@company.com / +91..." />
+              </Field>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-[15px] mb-10"
-          style={{ color: "var(--text-muted)" }}
-        >
-          Let&apos;s discuss your requirements. We respond within 24 hours for all
-          genuine B2B enquiries.
-        </motion.p>
+              <Field label="Option" error={errors.option?.message} className="md:col-span-2">
+                <select {...register("option")} className="input-field">
+                  <option value="">Select option</option>
+                  {inquiryOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </Field>
 
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.18 }}
-          className="flex items-center justify-center gap-4 flex-wrap"
-        >
-          <Link href="/contact" className="btn-primary">
-            Send Enquiry
-            <ArrowRight size={14} />
-          </Link>
-          <a
-            href="https://wa.me/91XXXXXXXXXX"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2"
-            style={{
-              padding: "14px 32px",
-              border: "1px solid rgba(37,211,102,0.25)",
-              color: "#25d366",
-              fontSize: "11px",
-              letterSpacing: "2.5px",
-              textTransform: "uppercase",
-              transition: "background 0.25s ease",
-            }}
-          >
-            <MessageCircle size={14} />
-            WhatsApp Us
-          </a>
-        </motion.div>
+              <Field label="Message" error={errors.message?.message} className="md:col-span-2">
+                <textarea
+                  {...register("message")}
+                  rows={4}
+                  className="input-field resize-none"
+                  placeholder="Product, quantity, destination, or logistics support needed."
+                />
+              </Field>
+            </div>
+
+            <button type="submit" disabled={loading} className="btn-primary mt-6 w-full transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto">
+              {loading ? "Sending..." : "Send Message"}
+              <Send size={15} />
+            </button>
+          </form>
+        </div>
       </div>
-    </section>
+      </section>
+      {/* END: Minimal Inquiry Form */}
+    </>
+  );
+}
+
+function Field({
+  label,
+  error,
+  children,
+  className,
+}: {
+  label: string;
+  error?: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <label className={className}>
+      <span className="mb-2 block text-[11px] font-bold uppercase tracking-[0.14em] text-slate-500">{label}</span>
+      {children}
+      {error && <span className="mt-1 block text-xs font-semibold text-red-600">{error}</span>}
+    </label>
   );
 }

@@ -1,131 +1,76 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ShieldCheck, Globe, FileText,
-  Star, TrendingUp, Headphones,
-} from "lucide-react";
+import { Boxes, ClipboardCheck, Handshake, PackageCheck, Route, Sprout } from "lucide-react";
 
-const reasons = [
+const advantages = [
   {
-    icon:  ShieldCheck,
-    title: "Certified Quality",
-    text:  "Every consignment is backed by APEDA, FSSAI and IEC certifications. Quality checks at source, during processing, and pre-shipment — non-negotiable.",
-    num:   "01",
+    icon: Sprout,
+    title: "Direct Sourcing",
+    text: "Direct farm-gate procurement from India's agricultural heartlands.",
   },
   {
-    icon:  Globe,
-    title: "Reliable Logistics",
-    text:  "End-to-end freight management — FCL, LCL and air freight. We coordinate customs clearance, phytosanitary certificates, and final-mile delivery.",
-    num:   "02",
+    icon: PackageCheck,
+    title: "Uncompromising Quality",
+    text: "Dual-layer internal quality checks prior to container loading.",
   },
   {
-    icon:  FileText,
-    title: "Documentation Integrity",
-    text:  "Clean, audit-ready export documentation. Bills of lading, phytosanitary certificates and fumigation reports — all handled in-house.",
-    num:   "03",
+    icon: Route,
+    title: "End-to-End Logistics",
+    text: "Seamless domestic shipping and multimodal freight management from processing yard to destination port.",
   },
   {
-    icon:  Star,
-    title: "Family Legacy",
-    text:  "The Jeyaraj name has been synonymous with honest trade for decades. That legacy isn't a tagline — it's accountability built into every deal.",
-    num:   "04",
+    icon: ClipboardCheck,
+    title: "Absolute Transparency",
+    text: "Clear documentation, real-time tracking milestones, and strict trade compliance.",
   },
   {
-    icon:  TrendingUp,
-    title: "Competitive Pricing",
-    text:  "Direct sourcing from farmers and processing units eliminates intermediary costs. Sharp, transparent B2B pricing passed forward to every buyer.",
-    num:   "05",
+    icon: Boxes,
+    title: "Custom Packaging",
+    text: "Flexible bulk packing configurations matching country-specific import guidelines.",
   },
   {
-    icon:  Headphones,
-    title: "Dedicated Support",
-    text:  "Your business gets a named contact, not a call queue. Real-time shipment updates, proactive issue resolution, post-delivery support.",
-    num:   "06",
+    icon: Handshake,
+    title: "Customer-Centric Execution",
+    text: "Dedicated account managers catering to diverse time zones.",
   },
 ];
 
 export default function WhyVVJ() {
   return (
-    <section style={{ background: "var(--bg)" }}>
+    <>
+      {/* BEGIN: VVJ Advantage Section */}
+      <section id="advantage" className="bg-white">
       <div className="max-content section-padding">
-
-        {/* Header */}
-        <div className="mb-14">
-          <span className="label-tag">Why Choose Us</span>
-          <h2
-            className="font-serif font-semibold"
-            style={{
-              fontSize: "clamp(32px, 4vw, 52px)",
-              lineHeight: 1.05,
-              color: "var(--text)",
-            }}
-          >
-            The{" "}
-            <em
-              className="italic"
-              style={{ color: "var(--emerald-mid)" }}
-            >
-              VVJ Advantage
-            </em>
-          </h2>
+        <div className="mb-12 max-w-3xl">
+          <span className="label-tag">The VVJ Advantage</span>
+          <h2 className="heading-lg mt-5">Six operating principles behind every shipment.</h2>
         </div>
 
-        {/* Grid */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-          style={{ gap: "1px", background: "var(--border)" }}
-        >
-          {reasons.map((r, i) => {
-            const Icon = r.icon;
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200 md:grid-cols-2 lg:grid-cols-3">
+          {advantages.map((item, i) => {
+            const Icon = item.icon;
             return (
-              <motion.div
-                key={r.num}
+              <motion.article
+                key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="why-card"
+                transition={{ duration: 0.45, delay: i * 0.05 }}
+                className="bg-white p-7 transition-all duration-300 hover:bg-slate-50"
               >
-                {/* Ghost number */}
-                <span
-                  className="absolute top-6 right-6 font-serif font-bold leading-none pointer-events-none"
-                  style={{
-                    fontSize: "72px",
-                    color: "var(--emerald-mid)",
-                    opacity: 0.05,
-                  }}
-                >
-                  {r.num}
-                </span>
-
-                {/* Icon */}
-                <Icon
-                  size={36}
-                  strokeWidth={1}
-                  style={{ color: "var(--emerald-mid)", marginBottom: "24px" }}
-                />
-
-                {/* Title */}
-                <h3
-                  className="font-serif font-semibold mb-3"
-                  style={{ fontSize: "20px", color: "var(--text)" }}
-                >
-                  {r.title}
-                </h3>
-
-                {/* Text */}
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: "var(--text-muted)" }}
-                >
-                  {r.text}
-                </p>
-              </motion.div>
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-md border border-emerald-100 bg-emerald-50 text-emerald-700">
+                  <Icon size={24} strokeWidth={1.6} />
+                </div>
+                <h3 className="text-2xl">{item.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-slate-500">{item.text}</p>
+              </motion.article>
             );
           })}
         </div>
       </div>
-    </section>
+      </section>
+      {/* END: VVJ Advantage Section */}
+    </>
   );
 }

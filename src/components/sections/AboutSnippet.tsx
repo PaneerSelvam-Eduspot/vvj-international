@@ -3,199 +3,100 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, ArrowRight, Anchor, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, ClipboardCheck, ShipWheel } from "lucide-react";
 
 const highlights = [
-  "APEDA Certified Export House",
-  "FSSAI Licensed",
-  "IEC Registered",
-  "B2B Focused",
+  "Peanut candy production expertise",
+  "Bulk B2B commodity supply",
+  "Domestic and global shipping support",
+  "Export documentation support",
 ];
 
 export default function AboutSnippet() {
   return (
-    <section style={{ background: "var(--bg)" }}>
-      <div className="max-content section-padding-sm">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-
-          {/* ── Left: Image frame ── */}
+    <>
+      {/* BEGIN: About & Legacy Section */}
+      <section id="about" className="bg-white">
+      <div className="max-content section-padding">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.86fr_1fr] lg:items-center">
           <motion.div
-            initial={{ opacity: 0, x: -16 }}
+            initial={{ opacity: 0, x: -18 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
             className="relative"
           >
-            {/* Main image frame */}
-            <div className="relative overflow-hidden" style={{ aspectRatio: "4/5", maxWidth: "380px" }}>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
               <Image
-                src="/vvj-logo.png"
-                alt="VVJ International & Logistics "
+                src="/images/onion.jpg"
+                alt="Indian agricultural cultivation for export sourcing"
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 480px"
-                priority={false}
+                sizes="(max-width: 1024px) 100vw, 430px"
               />
-
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(11,28,20,0.65) 0%, rgba(11,28,20,0.2) 45%, rgba(11,28,20,0.15) 100%)",
-                }}
-              />
-
-              <div className="absolute left-4 top-4 inline-flex items-center gap-2 opacity-85">
-                <Anchor size={16} strokeWidth={1.1} style={{ color: "var(--emerald-mid)" }} />
-                <span className="text-[8px] tracking-[2.5px] uppercase text-vvj-text">
-                  Trusted Export House
-                </span>
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.06)_0%,rgba(15,23,42,0.58)_100%)]" />
+              <div className="absolute bottom-5 left-5 right-5 rounded-md border border-white/16 bg-white/92 p-5 backdrop-blur-md">
+                <div className="flex items-start gap-3">
+                  <ShipWheel className="mt-1 flex-none text-emerald-700" size={22} />
+                  <div>
+                    <p className="m-0 text-[11px] font-bold uppercase tracking-[0.16em] text-slate-500">
+                      Logistics Led Trade
+                    </p>
+                    <p className="m-0 mt-1 text-sm font-semibold leading-6 text-slate-950">
+                      Sourcing, packing, documents, domestic shipping, freight, and buyer updates handled as one workflow.
+                    </p>
+                  </div>
+                </div>
               </div>
-
-              {/* Corner accents */}
-              <div className="corner-tl" />
-              <div className="corner-br" />
-
-              {/* Inner border */}
-              <div
-                className="absolute pointer-events-none"
-                style={{
-                  inset: "12px",
-                  border: "1px solid rgba(82,183,136,0.15)",
-                }}
-              />
             </div>
-
-            {/* Floating badge 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="absolute -bottom-6 -right-6 hidden md:flex flex-col items-center justify-center"
-              style={{
-                width: "120px",
-                height: "120px",
-                background: "var(--emerald)",
-                border: "4px solid var(--bg)",
-              }}
-            >
-              <span
-                className="font-serif text-3xl font-bold leading-none"
-                style={{ color: "var(--text)" }}
-              >
-                15+
-              </span>
-              <span
-                className="text-[9px] tracking-[1.5px] uppercase text-center mt-1 leading-tight"
-                style={{ color: "rgba(240,247,242,0.7)" }}
-              >
-                Years of Trade
-              </span>
-            </motion.div>
-            */}
           </motion.div>
 
-          {/* ── Right: Content ── */}
           <motion.div
-            initial={{ opacity: 0, x: 16 }}
+            initial={{ opacity: 0, x: 18 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.55, delay: 0.08, ease: "easeOut" }}
           >
-            <span className="label-tag">About Us</span>
-
-            <h2
-              className="font-serif font-semibold mb-4"
-              style={{
-                fontSize: "clamp(28px, 3.4vw, 42px)",
-                lineHeight: 1.08,
-                color: "var(--text)",
-              }}
-            >
-              VVJ{" "}
-              <span style={{ color: "var(--emerald-mid)" }}>International</span>
-              <br />
-              <em className="italic" style={{ color: "var(--gold)" }}>
-                & Logistics
-              </em>
-            </h2>
-
-            <p
-              className="text-[14px] leading-relaxed mb-3"
-              style={{ color: "var(--text-muted)" }}
-            >
-              VVJ International & Logistics is a premier agricultural export house,
-              proudly backed by the legacy of the Jeyaraj family. We are engaged in
-              trading and marketing of premium agricultural produce — onion, peanut,
-              peanut candy and India&apos;s finest mango varieties.
+            <span className="label-tag">About VVJ</span>
+            <h2 className="heading-lg mt-5 max-w-3xl">VVJ International & Logistics</h2>
+            <p className="mt-6 max-w-2xl text-base">
+              Based in Kovilpatti, Tamil Nadu, VVJ International & Logistics is an established merchant exporter
+              specializing in premium agricultural commodities, food products, and traditional peanut candy.
+            </p>
+            <p className="mt-4 max-w-2xl text-base">
+              As an APEDA-registered enterprise, we bridge the gap between India&apos;s rich agricultural sectors
+              and commercial buyers, offering end-to-end domestic shipping, international supply chain, and
+              shipment management.
+            </p>
+            <p className="mt-4 max-w-2xl text-base">
+              Our foundational expertise in the food sector dates back to 1962, and today we translate that
+              procurement, processing, and manufacturing background into the global trade landscape.
             </p>
 
-            <p
-              className="text-[14px] leading-relaxed mb-6"
-              style={{ color: "var(--text-muted)" }}
-            >
-              We are B2B traders, highly specialized in bulk agricultural exports.
-              Our network spans across Asia, the Middle East and Africa. We maintain
-              strict quality standards and distribute to institutional buyers,
-              manufacturers and exporters worldwide.
-            </p>
-
-            {/* Highlights */}
-            <ul className="space-y-2.5 mb-8">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {highlights.map((h) => (
-                <li key={h} className="flex items-center gap-3">
-                  <CheckCircle2
-                    size={15}
-                    style={{ color: "var(--emerald-mid)", flexShrink: 0 }}
-                  />
-                  <span
-                    className="text-[12px]"
-                    style={{ color: "var(--text-muted)" }}
-                  >
-                    {h}
-                  </span>
-                </li>
+                <div key={h} className="flex items-center gap-3 rounded-md border border-slate-200 bg-slate-50 px-4 py-3 transition-all duration-300 hover:border-emerald-200 hover:bg-emerald-50">
+                  <CheckCircle2 size={18} className="flex-none text-emerald-700" />
+                  <span className="text-sm font-semibold text-slate-700">{h}</span>
+                </div>
               ))}
-            </ul>
+            </div>
 
-            {/* Bottom row */}
-            <div className="flex items-center gap-4 flex-wrap">
+            <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link href="/about" className="btn-primary">
-                Read More
-                <ArrowRight size={14} />
+                Company Profile
+                <ArrowRight size={15} />
               </Link>
-
-              {/* Call to ask */}
-              <div
-                className="flex items-center gap-3 px-4 py-3"
-                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
-              >
-                <div
-                  className="flex items-center justify-center w-8 h-8 rounded-full"
-                  style={{ background: "var(--emerald-dim)" }}
-                >
-                  <Phone size={14} style={{ color: "var(--emerald-mid)" }} />
-                </div>
-                <div>
-                  <div
-                    className="text-[9px] tracking-[2px] uppercase mb-0.5"
-                    style={{ color: "var(--text-muted)" }}
-                  >
-                    Call to ask any question
-                  </div>
-                  <div
-                    className="text-[13px] font-medium"
-                    style={{ color: "var(--text)", fontFamily: "var(--font-dm-sans)" }}
-                  >
-                    +91 XXXXX XXXXX
-                  </div>
-                </div>
+              <div className="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                <ClipboardCheck size={18} className="text-emerald-700" />
+                Trade-ready compliance and paperwork
               </div>
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
+      </section>
+      {/* END: About & Legacy Section */}
+    </>
   );
 }

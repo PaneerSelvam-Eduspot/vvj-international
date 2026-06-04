@@ -1,135 +1,40 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { Phone, Mail, MapPin, TrendingUp, Globe, Package, ShieldCheck } from "lucide-react";
-import { motion, useInView, animate } from "framer-motion";
+import { BadgeCheck, Flag, Landmark, Leaf, ShieldCheck } from "lucide-react";
 
-function Counter({ target, suffix = "" }: { target: number; suffix?: string }) {
-  const ref    = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-
-  useEffect(() => {
-    if (!inView || !ref.current) return;
-    const ctrl = animate(0, target, {
-      duration: 2,
-      ease: "easeOut",
-      onUpdate(v) {
-        if (ref.current) ref.current.textContent = Math.round(v) + suffix;
-      },
-    });
-    return () => ctrl.stop();
-  }, [inView, target, suffix]);
-
-  return <span ref={ref}>0{suffix}</span>;
-}
-
-const stats = [
-  { icon: TrendingUp,   num: 15,  suffix: "+", label: "Years of Trade"    },
-  { icon: Globe,        num: 12,  suffix: "+", label: "Export Markets"    },
-  { icon: Package,      num: 4,   suffix: "",  label: "Premium Products"  },
-  { icon: ShieldCheck,  num: 100, suffix: "%", label: "Quality Certified" },
-];
-
-const contactInfo = [
-  { icon: Phone,  value: "+91 XXXXX XXXXX",          label: "Call Us"  },
-  { icon: Mail,   value: "info@vvjexports.com", label: "Email Us" },
-  { icon: MapPin, value: "Tamil Nadu, India",         label: "Location" },
+const badges = [
+  { icon: Leaf, label: "APEDA Certified" },
+  { icon: ShieldCheck, label: "FSSAI Approved" },
+  { icon: Landmark, label: "Spices Board of India" },
+  { icon: BadgeCheck, label: "IEC Holder (DGFT)" },
+  { icon: Flag, label: "Make In India" },
 ];
 
 export default function StatsBar() {
   return (
     <>
-      {/* ── Top contact info bar (UMA style) ── */}
-      <div
-        style={{
-          background: "var(--surface-2)",
-          borderBottom: "1px solid var(--border)",
-        }}
-      >
-        <div
-          className="max-content flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4 sm:gap-0"
-          style={{ padding: "14px 5%" }}
-        >
-          {contactInfo.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <div key={item.label} className="flex items-center gap-3">
-                {/* Divider */}
-                {i > 0 && (
-                  <div
-                    className="hidden sm:block w-px h-6 mx-4"
-                    style={{ background: "var(--border)" }}
-                  />
-                )}
+      {/* BEGIN: Certification & Trust Banner */}
+      <section className="border-b border-slate-200 bg-white px-[5%] py-6">
+        <div className="max-content">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
+            {badges.map((badge) => {
+              const Icon = badge.icon;
+              return (
                 <div
-                  className="flex items-center justify-center w-8 h-8 rounded-full"
-                  style={{ background: "var(--emerald-dim)", border: "1px solid var(--emerald-border)" }}
+                  key={badge.label}
+                  className="group flex min-h-24 items-center justify-center gap-3 rounded-md border border-slate-100 bg-slate-50 px-4 py-4 opacity-70 grayscale transition-all duration-300 hover:border-emerald-200 hover:bg-emerald-50 hover:opacity-100 hover:grayscale-0"
                 >
-                  <Icon size={13} style={{ color: "var(--emerald-mid)" }} />
+                  <Icon size={22} className="text-slate-500 transition-all duration-300 group-hover:text-emerald-700" />
+                  <span className="text-xs font-extrabold uppercase tracking-[0.12em] text-slate-600 transition-all duration-300 group-hover:text-slate-950">
+                    {badge.label}
+                  </span>
                 </div>
-                <div>
-                  <div
-                    className="text-[9px] tracking-[2px] uppercase"
-                    style={{ color: "var(--text-muted)" }}
-                  >
-                    {item.label}
-                  </div>
-                  <div
-                    className="text-[12px] font-medium"
-                    style={{ color: "var(--text)", fontFamily: "var(--font-dm-sans)" }}
-                  >
-                    {item.value}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-
-      {/* ── Stats counter bar ── 
-      <div
-        style={{
-          background: "var(--surface)",
-          borderBottom: "1px solid var(--border)",
-        }}
-      >
-        <div className="max-content grid grid-cols-2 md:grid-cols-4">
-          {stats.map((stat, i) => {
-            const Icon = stat.icon;
-            return (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="stat-item flex flex-col items-center"
-              >
-                <Icon
-                  size={18}
-                  className="mb-3"
-                  style={{ color: "var(--emerald-mid)", opacity: 0.7 }}
-                />
-                <span
-                  className="font-serif font-bold block leading-none mb-2"
-                  style={{ fontSize: "clamp(36px, 4vw, 52px)", color: "var(--emerald-mid)" }}
-                >
-                  <Counter target={stat.num} suffix={stat.suffix} />
-                </span>
-                <span
-                  className="text-[10px] tracking-[2px] uppercase"
-                  style={{ color: "var(--text-muted)" }}
-                >
-                  {stat.label}
-                </span>
-              </motion.div>
-            );
-          })}
-        </div>
-        
-      </div>
-      */}
+      </section>
+      {/* END: Certification & Trust Banner */}
     </>
   );
 }

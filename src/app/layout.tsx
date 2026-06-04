@@ -10,11 +10,21 @@ export const metadata: Metadata = {
     template: "%s | VVJ International",
   },
   description:
-    "Premium agricultural export house — onions, peanuts, peanut candy and mangoes from India to the world. By the Crew of Jeyaraj.",
-  keywords: ["India agro export", "onion export", "mango export India", "peanut export", "VVJ International"],
+    "Indian agricultural commodity exporter and domestic and global logistics partner, specializing in peanut candy, red onions, peanuts, mangoes, and freight coordination.",
+  keywords: [
+    "India agro export",
+    "red onion export India",
+    "mango exporter India",
+    "peanut exporter India",
+    "chikki export India",
+    "peanut candy exporter India",
+    "domestic shipping India",
+    "international logistics India",
+    "VVJ International",
+  ],
   openGraph: {
     title: "VVJ International & Logistics",
-    description: "Premium agricultural exports from India to the world.",
+    description: "Agricultural commodity exports, peanut candy expertise, and domestic and global logistics from India.",
     type: "website",
   },
 };
@@ -37,9 +47,9 @@ export default function RootLayout({
           position="bottom-right"
           toastOptions={{
             style: {
-              background: "#131313",
-              border: "1px solid rgba(201,168,76,0.3)",
-              color: "#F0E6C8",
+              background: "#0F172A",
+              border: "1px solid rgba(255,255,255,0.12)",
+              color: "#FFFFFF",
             },
           }}
         />

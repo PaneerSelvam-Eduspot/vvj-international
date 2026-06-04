@@ -40,8 +40,9 @@ export default function ExportsPage() {
           </div>
           <p className="text-vvj-muted text-[15px] leading-relaxed max-w-2xl mb-16">
             VVJ International currently exports to {exportCountries.length}+
-            destinations across Asia, the Middle East, Africa and Oceania. We
-            ship via major Indian ports — Chennai, Mumbai, Mundra and Nhava Sheva.
+            destinations across Asia, the Middle East, Africa and Oceania, while
+            also supporting domestic shipping within India. We ship via major Indian
+            ports including Chennai, Mumbai, Mundra and Nhava Sheva.
           </p>
 
           {/* Region groups */}
@@ -73,7 +74,7 @@ export default function ExportsPage() {
           {/* Ports */}
           <div className="mt-20 p-10 border border-vvj-border bg-surface">
             <h3 className="font-serif text-2xl font-semibold mb-8">
-              Shipping Ports We Operate From
+              Domestic & Export Shipping Routes
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {["Chennai Port", "Mumbai Port", "Mundra Port", "Nhava Sheva"].map(
