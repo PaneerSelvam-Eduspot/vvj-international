@@ -31,10 +31,11 @@ export async function POST(request: Request) {
   const smsResult = await sendSmsNotification(parsed.data);
 
   if (!emailResult.ok) {
+    console.error("Contact email notification failed:", emailResult.error);
+
     return Response.json(
       {
-        error: "Notification email is not configured yet.",
-        details: emailResult.error,
+        error: "Unable to send notification email.",
       },
       { status: 503 }
     );
